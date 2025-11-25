@@ -1,26 +1,89 @@
-Simple Offline Currency Converter (Basic Python)
 
-rates = {
-    "USD": 1.0,        # base currency
-    "INR": 83.20,
-    "EUR": 0.94,
-    "GBP": 0.82,
-    "AED": 3.67,
-    "JPY": 157.12
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/arukala25mei10055-ui/CURRENSIC-CONVERTER/blob/main/Welcome_To_Colab.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# Simple Offline Currency Converter (Basic Python)\n",
+        "\n",
+        "rates = {\n",
+        "    \"USD\": 1.0,        # base currency\n",
+        "    \"INR\": 83.20,\n",
+        "    \"EUR\": 0.94,\n",
+        "    \"GBP\": 0.82,\n",
+        "    \"AED\": 3.67,\n",
+        "    \"JPY\": 157.12\n",
+        "}\n",
+        "\n",
+        "def convert(amount, from_curr, to_curr):\n",
+        "    if from_curr not in rates or to_curr not in rates:\n",
+        "        return None\n",
+        "    # Convert to USD → then to target currency\n",
+        "    usd_value = amount / rates[from_curr]\n",
+        "    return usd_value * rates[to_curr]\n",
+        "\n",
+        "\n",
+        "print(\"=== Currency Converter ===\")\n",
+        "\n",
+        "amount = float(input(\"Enter amount: \"))\n",
+        "from_currency = input(\"From currency (USD, INR, EUR, GBP, AED, JPY): \").upper()\n",
+        "to_currency = input(\"To currency (USD, INR, EUR, GBP, AED, JPY): \").upper()\n",
+        "\n",
+        "result = convert(amount, from_currency, to_currency)\n",
+        "\n",
+        "if result is None:\n",
+        "    print(\"Invalid currency\")\n",
+        "else:\n",
+        "    print(f\"\\n{amount} {from_currency} = {result:.2f} {to_cur\n",
+        "rency}\")"
+      ],
+      "metadata": {
+        "id": "N5SHLRQ8KNZZ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "LFbQZjtmKYHZ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "7Pl4hQa_KYaW"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome To Colab",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
 }
-
-def convert(amount, from_curr, to_curr):
-    if from_curr not in rates or to_curr not in rates:
-        return None
-    # Convert to USD → then to target currency
-    usd_value = amount / rates[from_curr]
-    return usd_value * rates[to_curr]
-
-
-print("=== Currency Converter ===")
-
-amount = float(input("Enter amount: "))
-from_currency = input("From currency (USD, INR, EUR, GBP, AED, JPY): ").upper()
-to_currency = input("To currency (USD, INR, EUR, GBP, AED, JPY): ").upper()
-
-result = convert(amount, from_currency, to_currency)
